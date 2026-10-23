@@ -1,0 +1,88 @@
+
+/* ===== Estilos das demonstrações de CSS Grid ===== */
+
+.grid-demo {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+}
+
+.grid-item {
+  min-height: 65px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #111;
+  font-weight: bold;
+  background: #00d8ff;
+  border-radius: 8px;
+}
+
+/* ===== 1. Três colunas iguais ===== */
+
+.grid-colunas,
+.grid-grade {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ===== 2. Linhas de alturas diferentes ===== */
+
+.grid-linhas {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100px 60px;
+}
+
+/* ===== 3. Item ocupando duas colunas ===== */
+
+.grid-destaque {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-destaque .item-grande {
+  grid-column: span 2;
+  background: #7fff00;
+}
+
+/* ===== 4. Grade responsiva ===== */
+
+.grid-responsivo {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+/* ===== Códigos de exemplo ===== */
+
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: rgba(0,0,0,0.25);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+/* ===== Links ===== */
+
+main a {
+  color: #00d8ff;
+  font-weight: bold;
+}
+
+/* ===== Ajustes para celular ===== */
+
+@media (max-width: 600px) {
+  .grid-demo {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .grid-item {
+    padding: 8px;
+    overflow-wrap: anywhere;
+  }
+}

@@ -1,0 +1,102 @@
+
+/* ===== Estilos das demonstrações de Flexbox ===== */
+
+.flex-demo {
+  display: flex;
+  min-height: 130px;
+  padding: 15px;
+  margin: 20px 0;
+  gap: 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+}
+
+.flex-item {
+  min-width: 65px;
+  min-height: 65px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-weight: bold;
+  background: #00d8ff;
+  border-radius: 8px;
+}
+
+/* ===== 1. Itens em linha ===== */
+
+.flex-linha {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* ===== 2. Itens em coluna ===== */
+
+.flex-coluna {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ===== 3. Alinhamento ===== */
+
+.flex-alinhado {
+  min-height: 180px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* ===== 4. Quebra de linha ===== */
+
+.flex-quebra {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-quebra .flex-item {
+  flex: 1 1 100px;
+}
+
+/* ===== 5. Crescimento de um item ===== */
+
+.flex-crescimento {
+  align-items: center;
+}
+
+.flex-crescimento .cresce {
+  flex-grow: 1;
+  background: #7fff00;
+}
+
+/* ===== Códigos de exemplo ===== */
+
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: rgba(0,0,0,0.25);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+/* ===== Links ===== */
+
+main a {
+  color: #00d8ff;
+  font-weight: bold;
+}
+
+/* ===== Ajustes para celular ===== */
+
+@media (max-width: 600px) {
+  .flex-demo {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .flex-item {
+    min-width: 48px;
+    padding: 10px;
+  }
+}

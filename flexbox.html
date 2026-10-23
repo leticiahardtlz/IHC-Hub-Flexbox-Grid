@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox - Aula de CSS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="flexbox.css">
+</head>
+<body>
+
+  <header>
+    <h1>Flexbox - Aula de CSS</h1>
+    <a href="index.html">⬅ Voltar ao Hub</a>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é Flexbox?</h2>
+      <p>
+        Flexbox é um recurso do CSS usado para organizar elementos dentro de um contêiner.
+        Ele facilita o alinhamento, a distribuição dos espaços e a adaptação dos elementos
+        a diferentes tamanhos de tela.
+      </p>
+      <p>
+        É um layout <strong>unidimensional</strong>: organiza os itens principalmente em uma
+        linha ou em uma coluna.
+      </p>
+      <ul>
+        <li><code>display: flex;</code> ativa o Flexbox no contêiner;</li>
+        <li><code>flex-direction</code> define a direção dos itens;</li>
+        <li><code>justify-content</code> distribui os itens no eixo principal;</li>
+        <li><code>align-items</code> alinha os itens no eixo transversal;</li>
+        <li><code>gap</code> define o espaço entre os itens;</li>
+        <li><code>flex-wrap</code> permite que os itens quebrem para outra linha.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>1. Ativando o Flexbox</h2>
+      <p>
+        O contêiner é o elemento pai. Os itens flexíveis são os elementos que ficam dentro dele.
+        Ao aplicar <code>display: flex;</code> no pai, os filhos passam a ser organizados pelo Flexbox.
+      </p>
+      <div class="flex-demo flex-linha">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+      <pre><code>.container {
+  display: flex;
+  gap: 12px;
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>2. Direção dos itens</h2>
+      <p>
+        A propriedade <code>flex-direction</code> muda a direção principal. O valor
+        <code>row</code> organiza em linha; <code>column</code> organiza em coluna.
+      </p>
+
+      <p><strong>row — linha:</strong></p>
+      <div class="flex-demo flex-linha">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+      </div>
+
+      <p><strong>column — coluna:</strong></p>
+      <div class="flex-demo flex-coluna">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+      </div>
+
+      <pre><code>.container {
+  display: flex;
+  flex-direction: row; /* ou column */
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>3. Alinhamento e distribuição</h2>
+      <p>
+        <code>justify-content</code> organiza os itens no eixo principal. Já
+        <code>align-items</code> alinha os itens no eixo transversal.
+        Com <code>gap</code>, controlamos a distância entre eles.
+      </p>
+
+      <div class="flex-demo flex-alinhado">
+        <div class="flex-item">Um</div>
+        <div class="flex-item">Dois</div>
+        <div class="flex-item">Três</div>
+      </div>
+
+      <pre><code>.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 12px;
+}</code></pre>
+
+      <p>
+        Outros valores comuns de <code>justify-content</code> são
+        <code>flex-start</code>, <code>center</code>, <code>flex-end</code>,
+        <code>space-between</code> e <code>space-evenly</code>.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Quebra de linha com flex-wrap</h2>
+      <p>
+        Quando não há espaço suficiente, <code>flex-wrap: wrap;</code> permite que os itens
+        passem para a linha seguinte, ajudando a criar layouts responsivos.
+      </p>
+
+      <div class="flex-demo flex-quebra">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+        <div class="flex-item">Item 4</div>
+        <div class="flex-item">Item 5</div>
+        <div class="flex-item">Item 6</div>
+      </div>
+
+      <pre><code>.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>5. Propriedades dos itens</h2>
+      <p>
+        Além das propriedades do contêiner, os próprios itens podem ser ajustados.
+        A propriedade <code>flex-grow</code>, por exemplo, permite que um item cresça
+        para ocupar o espaço livre disponível.
+      </p>
+
+      <div class="flex-demo flex-crescimento">
+        <div class="flex-item">Normal</div>
+        <div class="flex-item cresce">Cresce</div>
+        <div class="flex-item">Normal</div>
+      </div>
+
+      <pre><code>.item {
+  flex-grow: 1;
+}</code></pre>
+
+      <p>
+        Outras propriedades úteis são <code>flex-shrink</code> (controla a redução),
+        <code>flex-basis</code> (tamanho inicial) e <code>align-self</code>
+        (alinhamento individual de um item).
+      </p>
+    </section>
+
+    <section>
+      <h2>Quando usar Flexbox?</h2>
+      <ul>
+        <li>Para alinhar itens de um menu;</li>
+        <li>Para centralizar conteúdo horizontal e verticalmente;</li>
+        <li>Para distribuir botões ou cartões em uma linha;</li>
+        <li>Para organizar elementos em coluna;</li>
+        <li>Para adaptar grupos de itens a telas menores.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Atividade prática</h2>
+      <p>
+        Crie um contêiner com três itens. Teste <code>flex-direction: column;</code>,
+        depois troque para <code>row</code>. Experimente também
+        <code>justify-content: center;</code> e <code>flex-wrap: wrap;</code>.
+      </p>
+      <p>
+        Para praticar de forma interativa, acesse
+        <a href="https://flexboxfroggy.com/" target="_blank" rel="noopener noreferrer">Flexbox Froggy 🐸</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Material de estudo — Hub de Aulas HTML &amp; CSS</p>
+  </footer>
+
+</body>
+</html>
